@@ -16,7 +16,23 @@ license.
 
 == Configuration
 
-(Documentation is forthcoming.)
+CMS integration requires a WordPress installation that includes the {JSON
+API Plugin}[http://wordpress.org/extend/plugins/json-api/].
+
+Once the WP site is up and running, the site endpoint should be specified as
+the +origin+ content server in `config/kiosk.yml` of your Rails application.
+Different configurations may be specified for each Rails environment, along
+with a default.
+
+    origins:
+      default:
+        site: 'http://dev.cms.example/site_name'
+      production:
+        site: 'http://cms.example/site_name'
+
+Localization of content resources depends further on the installation of the
+{WPML Multilingual CMS}[http://wpml.org/] (non-free) and {WPML JSON
+API}[http://wordpress.org/extend/plugins/wpml-json-api/] plugins.
 
 == Roadmap
 

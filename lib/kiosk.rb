@@ -20,11 +20,11 @@ module Kiosk
   autoload :Origin, 'kiosk/origin'
   autoload :ProspectiveNode, 'kiosk/prospective_node'
   autoload :Prospector, 'kiosk/prospector'
-  autoload :Resource, 'kiosk/resource'
   autoload :ResourceURI, 'kiosk/resource_uri'
   autoload :Rewrite, 'kiosk/rewrite'
   autoload :Rewriter, 'kiosk/rewriter'
   autoload :Searchable, 'kiosk/searchable'
+  autoload :WordPress, 'kiosk/word_press'
 
   ##############################################################################
   # Module methods

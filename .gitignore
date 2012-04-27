@@ -7,3 +7,4 @@ rdoc
 Gemfile.lock
 *.un~
 .rspec
+*.gem

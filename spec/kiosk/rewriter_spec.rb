@@ -22,9 +22,9 @@ module Kiosk
         @origin = Origin.new({'site' => 'http://some.example/site/'})
         Kiosk.stub(:origin).and_return(@origin)
 
-        @post_model = Class.new(Resource)
-        @page_model = Class.new(Resource)
-        @att_model = Class.new(Resource)
+        @post_model = Class.new(WordPress::Resource)
+        @page_model = Class.new(WordPress::Resource)
+        @att_model = Class.new(WordPress::Resource)
 
         @rewriter = Rewriter.new
       end
