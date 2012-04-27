@@ -1,0 +1,25 @@
+= Kiosk
+
+Kiosk provides APIs for integrating WordPress content into a Ruby
+application: a base REST model for retrieving content, a caching layer,
+and a rewriting engine for canonicalizing and contextualizing content
+elements.
+
+This gem was initially developed by the {Office of Letters and
+Light}[http://lettersandlight.org] for use with {National Novel Writing
+Month}[http://nanowrimo.org]. It has since been released under the MIT
+license.
+
+== Basic Usage Patterns
+
+(Documentation is forthcoming.)
+
+== Configuration
+
+(Documentation is forthcoming.)
+
+== Roadmap
+
+In its current state, Kiosk depends on Rails for caching and ActiveResource as
+a base REST implementation. These dependencies will be made optional in the
+near future and alternative implementations made possible.

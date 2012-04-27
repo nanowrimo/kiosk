@@ -1,0 +1,9 @@
+.bundle/
+.rvmrc
+log/*.log
+pkg/
+coverage
+rdoc
+Gemfile.lock
+*.un~
+.rspec
