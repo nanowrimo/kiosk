@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.authors = ['Daniel Duvall']
   s.email = ['dan@mutual.io']
+  s.homepage = 'https://github.com/lettersandlight/kiosk'
 
   s.files = Dir['{lib}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'Gemfile', 'README.rdoc']
   s.version = Kiosk::VERSION
