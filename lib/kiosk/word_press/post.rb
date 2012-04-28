@@ -37,9 +37,9 @@ module Kiosk
         # Fetches posts for the given category.
         #
         def categorized_as(category, params = {})
-          category = Content::Category.find_by_slug(category) if category.is_a?(String)
+          category = Kiosk::WordPress::Category.find_by_slug(category) if category.is_a?(String)
           find_by_associated(category, {:count => 100000}.merge(params))
-        rescue Content::ResourceNotFound
+        rescue ResourceNotFound
           []
         end
 

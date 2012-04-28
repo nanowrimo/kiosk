@@ -20,6 +20,7 @@ module Kiosk
   autoload :Origin, 'kiosk/origin'
   autoload :ProspectiveNode, 'kiosk/prospective_node'
   autoload :Prospector, 'kiosk/prospector'
+  autoload :ResourceController, 'kiosk/resource_controller'
   autoload :ResourceURI, 'kiosk/resource_uri'
   autoload :Rewrite, 'kiosk/rewrite'
   autoload :Rewriter, 'kiosk/rewriter'

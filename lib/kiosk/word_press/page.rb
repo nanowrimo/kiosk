@@ -45,7 +45,7 @@ module Kiosk
           #parse the url
           uri = URI.parse(url)
           #get the route from the original site uri
-          route = uri.route_from(Content.origin.site_uri)
+          route = uri.route_from(Kiosk.origin.site_uri)
           #return just the path
           route.path
         rescue
