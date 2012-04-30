@@ -2,6 +2,7 @@ module Kiosk
   module WordPress
     class Post < Resource
       include Searchable::Resource
+      include ContentTeaser
 
       ##############################################################################
       # Content integration

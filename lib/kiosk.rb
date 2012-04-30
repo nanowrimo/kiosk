@@ -13,6 +13,7 @@ module Kiosk
   autoload :Cdn, 'kiosk/cdn'
   autoload :Claim, 'kiosk/claim'
   autoload :ClaimedNode, 'kiosk/claimed_node'
+  autoload :ContentTeaser, 'kiosk/content_teaser'
   autoload :Controller, 'kiosk/controller'
   autoload :Document, 'kiosk/document'
   autoload :Indexer, 'kiosk/indexer'
