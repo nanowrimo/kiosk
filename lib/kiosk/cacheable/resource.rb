@@ -4,6 +4,29 @@ module Kiosk
   module Cacheable::Resource
     extend ActiveSupport::Concern
 
+    included do
+      def self.inherited(sub)
+        super
+
+        sub.module_exec do
+          protected
+
+          # Returns expireable connection keys set by derived class and all
+          # parent classes.
+          #
+          def self.all_connection_keys_to_expire
+            keys = @connection_keys_to_expire || []
+
+            if superclass.respond_to?(:all_connection_keys_to_expire)
+              superclass.all_connection_keys_to_expire | keys
+            else
+              keys
+            end
+          end
+        end
+      end
+    end
+
     module ClassMethods
       # Specifies the length of time for which a resource should stay cached.
       # Either a +Fixnum+ (time in seconds) or block can be given. The block
@@ -46,11 +69,9 @@ module Kiosk
         expire(resource.id)
         expire_by_slug(resource.slug)
 
-        if @connection_keys_to_expire
-          begin
-            @connection_keys_to_expire.each { |key| connection.cache_expire_by_pattern(key) }
-          rescue NotImplementedError
-          end
+        begin
+          all_connection_keys_to_expire.each { |key| connection.cache_expire_by_pattern(key) }
+        rescue NotImplementedError
         end
 
         notify_observers(:after_expire, resource)
