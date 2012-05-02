@@ -19,9 +19,10 @@ module Kiosk
               resource.expire
             end
           end
-        else
-          resource.expire
         end
+
+        # Expire without the explicit target locales as well
+        resource.expire
       end
 
       render :nothing => true
