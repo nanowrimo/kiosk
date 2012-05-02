@@ -44,10 +44,16 @@ module Kiosk
       @rewrites.clear
     end
 
+    # Returns the rewriten document from +rewrite_to_document+ as a string.
+    #
+    def rewrite(content)
+      rewrite_to_document(content).to_html
+    end
+
     # Runs on claims on the given content, incorporates all controller
     # rewrites, and returns the resulting content.
     #
-    def rewrite(content)
+    def rewrite_to_document(content)
       document = Document.parse(content)
 
       # Claims are grouped by priority. Process them in order.
@@ -66,7 +72,7 @@ module Kiosk
         end
       end
 
-      document.to_html
+      document
     end
   end
 end

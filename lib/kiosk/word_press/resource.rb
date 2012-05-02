@@ -274,6 +274,12 @@ module Kiosk
         @content ||= raw_content && Kiosk.rewriter.rewrite(raw_content)
       end
 
+      # Returns the rewritten resource content as a +Document+.
+      #
+      def content_document
+        raw_content && Kiosk.rewriter.rewrite_to_document(raw_content)
+      end
+
       # Returns the rewritten resource excerpt. See +raw_excerpt+ for untouched
       # content.
       #
