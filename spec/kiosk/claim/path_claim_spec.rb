@@ -12,7 +12,7 @@ module Kiosk
         @origin = Origin.new({'site' => 'http://some.example/site/'})
         Kiosk.stub(:origin).and_return(@origin)
 
-        @model = Class.new(WordPress::Resource)
+        @model = mock_class(WordPress::Resource)
       end
 
       describe "#stake!" do
