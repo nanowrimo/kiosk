@@ -100,12 +100,10 @@ module Kiosk
       end
     end
 
-    module InstanceMethods
-      # Expire the resource from the cache.
-      #
-      def expire
-        self.class.expire_resource(self)
-      end
+    # Expire the resource from the cache.
+    #
+    def expire
+      self.class.expire_resource(self)
     end
   end
 end
