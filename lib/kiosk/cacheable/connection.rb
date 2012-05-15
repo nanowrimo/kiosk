@@ -31,8 +31,7 @@ module Kiosk
     # +cache_expire_by_pattern+.
     #
     def cache_key_matcher
-      case Rails.cache
-      when ActiveSupport::Cache::RedisStore
+      if defined?(ActiveSupport::Cache::RedisStore) && Rails.cache.is_a?(ActiveSupport::Cache::RedisStore)
         :glob
       else
         :regexp
@@ -73,11 +72,11 @@ module Kiosk
     # fresh result is returned.
     #
     def cache_read_write(key)
-      if result = cache(:read, cache_key(key))
-        result = JSON.parse(result)
+      if cached_object = cache(:read, cache_key(key))
+        result = cached_object
       elsif result = yield
         options = (expiry = cache_expiry_of(result)) ? {:expires_in => expiry} : {}
-        cache(:write, cache_key(key), result.to_json, options) if result
+        cache(:write, cache_key(key), result, options) if result
       end
       result
     end

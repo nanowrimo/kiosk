@@ -1,0 +1,4 @@
+origins:
+  default:
+    site: 'http://an.example/cms/'
+    indexer: 'thinking_sphinx'

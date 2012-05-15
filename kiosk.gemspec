@@ -26,5 +26,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rails', '~> 3.2.3'
 
   s.add_development_dependency 'rspec', '~> 2.5'
-  s.add_development_dependency 'shoulda'
+  s.add_development_dependency 'shoulda-matchers', '~> 1.1'
+  s.add_development_dependency 'thinking-sphinx', '~> 2.0.3'
 end

@@ -10,12 +10,18 @@ require 'kiosk'
 
 # Mock Rails
 module Rails
+  def self.application
+  end
+
+  def self.cache
+  end
+
   def self.env
     'test'
   end
 
   def self.root
-    File.expand_path(__FILE__, '../dummy')
+    File.expand_path('../dummy', __FILE__)
   end
 end
 
