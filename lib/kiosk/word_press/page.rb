@@ -42,12 +42,11 @@ module Kiosk
       #
       def slug
         begin
-          #parse the url
           uri = URI.parse(url)
-          #get the route from the original site uri
+          # get the route from the original site uri
           route = uri.route_from(Kiosk.origin.site_uri)
-          #return just the path
-          route.path
+          # return just the path without any trailing /
+          route.path.sub(/\/$/, '')
         rescue
           attributes[:slug]
         end
