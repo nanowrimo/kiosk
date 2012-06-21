@@ -7,7 +7,7 @@ module Kiosk
       end
 
       def matches?(node)
-        node.is_a?(ClaimedNode) && node.resource.is_a?(@model)
+        node.is_a?(ClaimedNode) && @model.ancestors.include?(node.resource.class)
       end
 
       def evaluate(node)
