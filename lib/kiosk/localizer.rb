@@ -7,8 +7,8 @@ module Kiosk
   #
   module Localizer
     def self.around(controller)
-      Resource.with_locale(Kiosk.origin.default_locale || I18n.default_locale) do
-        Resource.localized_to(I18n.locale) do
+      WordPress::Resource.with_locale(Kiosk.origin.default_locale || I18n.default_locale) do
+        WordPress::Resource.localized_to(I18n.locale) do
           yield
         end
       end
