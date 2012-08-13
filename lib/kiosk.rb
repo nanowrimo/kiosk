@@ -18,6 +18,7 @@ module Kiosk
   autoload :Document, 'kiosk/document'
   autoload :Indexer, 'kiosk/indexer'
   autoload :Localizable, 'kiosk/localizable'
+  autoload :Localizer, 'kiosk/localizer'
   autoload :Origin, 'kiosk/origin'
   autoload :ProspectiveNode, 'kiosk/prospective_node'
   autoload :Prospector, 'kiosk/prospector'
