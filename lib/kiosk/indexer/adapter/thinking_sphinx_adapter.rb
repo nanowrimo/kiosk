@@ -51,7 +51,7 @@ module Kiosk::Indexer::Adapter
         end
 
         def sphinx_index_names
-          sphinx_indexes.collect { |index| index.name }
+          (sphinx_indexes || []).collect { |index| index.name }
         end
 
         def to_riddle
@@ -146,7 +146,7 @@ module Kiosk::Indexer::Adapter
       end
 
       def total_pages
-        (@results[:total] / per_page.to_f).ceil
+        ((@results[:total] || 0) / per_page.to_f).ceil
       end
 
       private
@@ -235,7 +235,7 @@ module Kiosk::Indexer::Adapter
           @model.all.each do |resource|
             xm.sphinx :document, :id => resource.id do
               @fields.each do |field|
-                xm.send(field.name, resource.send(field.name))
+                xm.tag!(field.name, resource.send(field.name))
               end
             end
           end

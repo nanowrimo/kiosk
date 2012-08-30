@@ -1,7 +1,6 @@
 module Kiosk
   module WordPress
     class Post < Resource
-      include Searchable::Resource
       include ContentTeaser
 
       ##############################################################################
@@ -19,13 +18,6 @@ module Kiosk
       claims_path_content(:selector => 'a', :pattern => '\d{4}/\d{2}/\d{2}/:slug')
 
       expires_connection_methods('get_category_posts', 'get_tag_posts', 'get_recent_posts')
-
-      ##############################################################################
-      # Indexes
-      ##############################################################################
-      define_index(:content_post) do
-        indexes :title, :content
-      end
 
       ##############################################################################
       # Class methods
