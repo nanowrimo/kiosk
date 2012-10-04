@@ -4,7 +4,7 @@ module Kiosk
     #
     def match_uri(pattern, shim_patterns = {})
       resource_uri.match(pattern, shim_patterns)
-    rescue URI::BadURIError
+    rescue URI::BadURIError, URI::InvalidURIError
       nil
     end
 
