@@ -4,10 +4,15 @@ module Kiosk
 
     def initialize(config = {})
       @host = config['host']
+
+      unless @host.nil? || @host.empty?
+        @uri = URI.parse(@host)
+        @host_only = @uri.scheme.nil? && @uri.host.nil?
+      end
     end
 
     def configured?
-      @host
+      !@uri.nil?
     end
 
     def rewrite_node(node)
@@ -20,7 +25,13 @@ module Kiosk
 
     def rewrite_uri(uri)
       if configured?
-        uri.host = host
+        if @host_only
+          uri.host = @host
+        else
+          uri.scheme = @uri.scheme
+          uri.host = @uri.host
+          uri.path = "#{@uri.path.sub(/\/$/, '')}#{uri.path}" unless @uri.path.empty? || @uri.path == '/'
+        end
       end
       uri
     end
