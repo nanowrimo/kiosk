@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.email = ['dan@mutual.io']
   s.homepage = 'https://github.com/lettersandlight/kiosk'
 
-  s.files = Dir['{lib}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'Gemfile', 'README.rdoc']
+  s.files = Dir['{lib}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'Gemfile', 'README.md']
   s.version = Kiosk::VERSION
 
   s.require_paths = ['lib']
